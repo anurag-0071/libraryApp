@@ -22,9 +22,9 @@ CardHolderSchema.index({ cardNumber: 1 }, { unique: true });
 
 const CardHolderModel = Mongoose.model("cardholders", CardHolderSchema, "cardholders");
 
-const create = async (book) => {
+const create = async (cardHolder) => {
   try {
-    const newCardHolder = await CardHolderModel.create(book);
+    const newCardHolder = await CardHolderModel.create(cardHolder);
     console.log("Successfully created new card holder", newCardHolder.cardNumber);
     return newCardHolder;
   } catch (error) {

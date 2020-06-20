@@ -8,6 +8,7 @@ const PORT = 8080;
 
 const books = require("./router/books");
 const cardHolder = require("./router/cardHolder");
+const rental = require("./router/rental");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 app.use('/books', books);
 app.use('/cardHolder', cardHolder);
+app.use('/rental', rental);
 
 const startServer = () => {
   Mongoose.connect(DB_URL, (err) => {
