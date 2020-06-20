@@ -5,7 +5,9 @@ const readline = require('readline');
 
 const DB_URL = 'mongodb://localhost/libraryapp';
 const PORT = 8080;
+
 const books = require("./router/books");
+const cardHolder = require("./router/cardHolder");
 
 const app = express();
 
@@ -17,6 +19,7 @@ const rl = readline.createInterface({
 app.use(express.json());
 
 app.use('/books', books);
+app.use('/cardHolder', cardHolder);
 
 const startServer = () => {
   Mongoose.connect(DB_URL, (err) => {
